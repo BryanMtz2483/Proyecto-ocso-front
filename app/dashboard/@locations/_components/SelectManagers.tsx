@@ -2,12 +2,22 @@
 
 import { Select , SelectItem} from "@heroui/react"
 import { Location, Manager } from "@/entities"
-export default function SelectManager({managers, locations}: {managers: Manager[], locations: Location[]}) {
+
+interface SelectManagerProps {
+    managers: Manager[];
+    locations: Location[];
+    defaultManager?: string;
+}
+export default function SelectManager({managers, locations, defaultManager}: SelectManagerProps) {
     const disabledKeys = locations.map((location: Location) => {
+        if (location.manager?.managerId !== defaultManager) return location.manager?.managerId
         return location.manager?.managerId
     }).filter((managerId) => managerId !== undefined)
     return (
-        <Select label="Manager" name="manager" disabledKeys={disabledKeys}>
+        <Select defaultSelectedKeys={defaultManager ? [defaultManager] : []}
+        label="Manager" 
+        name="manager" 
+        disabledKeys={disabledKeys}>
             {managers.map((manager: Manager) => {
                     return (
                         <SelectItem key={manager.managerId}>

@@ -26,8 +26,8 @@ export default async function LocationCard({store}: {store: string | string[] | 
                 <p className="w-full">Direccion: <b>{data.locationAddress}</b></p>
             </CardBody>
             <CardFooter>
-                <p className="w-full">Latitud: <b>{data.locationLatLng[0]}</b></p>
-                <p className="w-full">Longitud: <b>{data.locationLatLng[1]}</b></p>
+                <p className="w-full">Latitud: <b>{data.locationLatLng?.[0] ?? 'N/A'}</b></p>
+                <p className="w-full">Longitud: <b>{data.locationLatLng?.[1] ?? 'N/A'}</b></p>
             </CardFooter>
         </Card>
     )

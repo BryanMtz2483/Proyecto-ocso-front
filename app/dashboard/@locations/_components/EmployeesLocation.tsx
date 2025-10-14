@@ -13,8 +13,19 @@ export default async function EmployeesLocation({store}: {store: string}) {
             tags: ["dasboard:locations:employees"]
         }
     });  
-    const data: Employee[] = await response.json(); 
-    return data.map((employee: Employee) => {
+    
+    if (!response.ok) {
+        return <p className="text-center text-red-500">Error al cargar empleados</p>;
+    }
+    
+    const data = await response.json();
+    
+    if (!Array.isArray(data)) {
+        return <p className="text-center">No hay empleados disponibles</p>;
+    }
+    
+    return (
+    data.map((employee: Employee) => {
         const fullName = employee.employeeName + ' ' + employee.employeeLastName;
         return (
         <Card className="mx-10 my-10">
@@ -31,4 +42,5 @@ export default async function EmployeesLocation({store}: {store: string}) {
             </CardFooter>
         </Card>)
     })
+    )
 }
