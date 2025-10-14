@@ -11,7 +11,6 @@ export default async function EmployeesLocation({store}: {store: string}) {
             Authorization: `Bearer ${token}`
         }
     });
-    console.log(data)
     if (!data) return null;
     
     return data.map((employee) => {
