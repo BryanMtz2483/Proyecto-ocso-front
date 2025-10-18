@@ -19,7 +19,10 @@ export default function LoginPage(){
         const response = await fetch(`${API_URL}/auth/login`, {
             body: JSON.stringify(authData),
             method: "POST",
-            credentials: 'include'
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
         if (response.status === 201){
             router.push("/dashboard");
