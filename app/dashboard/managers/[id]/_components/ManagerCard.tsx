@@ -12,6 +12,7 @@ export default function ManagerCard({manager}: {manager: Manager}){
                 <div className="flex flex-col items-center">
                 <p className="w-full my-2">Email: <b>{manager.managerEmail}</b></p>
                 <p className="w-full">Telefono: <b>{manager.managerPhoneNumber}</b></p>
+                <p className="w-full">Salario: <b>{manager.managerSalary}</b></p>
                 </div>
             </CardBody>
             <CardFooter>
@@ -22,7 +23,7 @@ export default function ManagerCard({manager}: {manager: Manager}){
                             store: manager.location?.locationId
                         }
                         }}
-                        >Tienda: <b>{manager.location?.locationName ?? "No tiene tiendas"}</b></Link>
+                        >Tienda: <b className="underline">{manager.location?.locationName ?? "No tiene tiendas"}</b></Link>
                 </p>
             </CardFooter>
         </Card>

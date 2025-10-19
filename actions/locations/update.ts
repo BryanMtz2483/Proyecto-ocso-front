@@ -32,6 +32,7 @@ export async function updateLocation(store: string, formData: FormData){
     const {locationId}: Location = await response.json();
     if (response.status === 201){
         revalidateTag("dashboard:locations");
+        revalidateTag("dashboard:managers");
         revalidateTag(`dashboard:locations:${store}`);
         redirect(`/dashboard?store=${locationId}`);
     }

@@ -4,6 +4,8 @@ import { authHeaders } from "@/helpers/authHeaders";
 import ManagerCard from "./_components/ManagerCard";
 import DeleteManagerButton from "./_components/DeleteManagerButton";
 
+import FormUpdateManager from "./_components/FormUpdateManager";
+import UpdateManager from "./_components/UpdateManager";
 export default async function ManagerPage({params}: {params: {id: string}}) {
     const response = await fetch(`${API_URL}/managers/${params.id}`, {
         headers: {
@@ -17,8 +19,11 @@ export default async function ManagerPage({params}: {params: {id: string}}) {
     return (
         <div className="flex flex-col flex-grow-0 items-center gap-10 justify-center">
             <ManagerCard manager={data}/>
-            <div className="bg-gray-50 rounded-md px-10 py-2">
+            <div className="bg-gray-50 rounded-md px-10 py-2 flex flex-row flex-grow-0 items-center gap-10">
                 <DeleteManagerButton managerId={data.managerId}/>
+                <UpdateManager>
+                    <FormUpdateManager manager={data}/>
+                </UpdateManager>
             </div>
         </div>
     )
