@@ -4,7 +4,7 @@ import { Card, CardBody, CardFooter, CardHeader, Divider } from "@heroui/react";
 
 export default function ProviderCard({provider}: {provider: Provider}){
     return (
-        <Card className="w-full">
+        <Card className="w-full min-w-[350px]">
             <CardHeader>
                 <p className="w-full"><b className="text-4xl">{provider.providerName}</b></p>
             </CardHeader>
@@ -14,15 +14,13 @@ export default function ProviderCard({provider}: {provider: Provider}){
                 <p className="w-full">Telefono: <b>{provider.providerPhoneNumber}</b></p>
             </CardBody>
             <CardFooter>
-                <div className="w-full">
-                    {
-                        provider.products ? (
-                            <p>Tiene <b>{provider.products.length}</b> productos</p>
-                        ) : (
-                            <p>No tiene productos</p>
-                        )
+            {provider.products.length !== 0 ? (
+                    <p>
+                        Tiene <b>{provider.products.length}</b> producto{provider.products.length > 1 ? "s" : ""}</p>
+                    ) : (
+                        <p>No tiene productos</p>
+                    )
                     }
-                </div>
             </CardFooter>
         </Card>
     )
