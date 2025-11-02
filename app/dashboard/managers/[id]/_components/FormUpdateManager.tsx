@@ -1,5 +1,5 @@
 
-import { updateManager } from "@/actions/managers/update";
+import { updateManager } from "@/actions/managers/update"
 import { Manager, Location } from "@/entities";
 import { Button, Input } from "@heroui/react";
 import SelectStore from "./SelectStore";

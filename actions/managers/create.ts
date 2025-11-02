@@ -3,7 +3,6 @@
 import { API_URL } from "@/constants"
 import { authHeaders } from "@/helpers/authHeaders"
 import { revalidateTag } from "next/cache"
-import { redirect } from "next/navigation"
 
 export const createManager = async (formData: FormData) => {
     let manager: any = {}

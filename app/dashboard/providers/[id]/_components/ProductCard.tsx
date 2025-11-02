@@ -11,7 +11,8 @@ export default function ProductCard({product}: {product: Product}){
             <Divider/>
             <CardBody>
                 <p className="w-full">Precio: <b>{product.price}</b></p>
-                <p className="w-full">Cantida de sellos: <b>{product.countSeal}</b></p>
+                <p className="w-full">Cantidad de sellos: <b>{product.countSeal}</b></p>
+                <p className="w-full">Proveedor: <b>{product.provider.providerName}</b></p>
             </CardBody>
             <CardFooter>
             </CardFooter>
